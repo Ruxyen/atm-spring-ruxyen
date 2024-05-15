@@ -1,0 +1,67 @@
+/* login.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('/images/ATM-card.jpg');  
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+/* Styling for the form container */
+form {
+    max-width: 400px;
+    background: #363d9e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for input fields */
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styling for submit button */
+form input[type="submit"] {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect for submit button */
+form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styling for error message label */
+form label {
+    margin-top: 10px;
+    display: block;
+    color: red;
+    font-size: 14px;
+}
+

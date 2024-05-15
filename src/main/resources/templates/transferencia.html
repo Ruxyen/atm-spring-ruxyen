@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/atm.css}" rel="stylesheet" />
+	<title>Transferencia</title>
+</head>
+
+<body>
+
+	<div class="container">
+    	<div class="column" id="buttons-column-1">
+        	<a href="/ingressar" class="button">Ingresar</a>
+        	<a href="/retirar" class="button">Retirar</a>
+        	<a href="/transferencia" class="button">Transferencia</a>
+        	<a href="/canviarPIN" class="button">Canviar PIN</a>
+    	</div>
+
+    	<div class="column" id="form-column">
+        	<h3>Transferencia</h3>
+        	<form th:action="@{/transferencia}" th:object="${transfer}" method="POST">
+            	<div class="inputTransferencia">
+                	<input type="text" name="quantitat" placeholder="Quantitat" th:field="*{quantitat}">
+                	<input type="text" name="numero" placeholder="Numero CC" th:field="*{numero}">
+
+            	</div>
+            	<br><label th:if="${missatge}" th:text="${missatge}"></label>
+
+    	</div>
+
+    	<div class="column" id="buttons-column-3">
+        	<a href="/moviment" class="button">Moviments</a>
+        	<a href="#" class="button"></a>
+        	<button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
+                	viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                	stroke-linejoin="round" style="color:#006400;">
+                	<circle cx="12" cy="12" r="10"></circle>
+            	</svg> <label>Confirmar</label></button>
+        	<a href="/transferencia" class="button" id="red-button">
+            	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                	stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#ff0000;">
+                	<line x1="18" y1="6" x2="6" y2="18"></line>
+                	<line x1="6" y1="6" x2="18" y2="18"></line>
+            	</svg>
+            	<label>Cancel·lar</label>
+        	</a>
+       	 
+    	</div>
+    	</form>
+	</div>
+
+</body>
+
+</html>
