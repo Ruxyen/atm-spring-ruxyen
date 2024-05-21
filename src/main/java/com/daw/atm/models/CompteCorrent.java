@@ -11,6 +11,6 @@ public class CompteCorrent extends Compte {
     // Método toString para representar la información de la cuenta corriente
     @Override
     public String toString() {
-        return "Comptecorrent " + this.numero + " té " + this.saldo + " euros";
+        return "Compte Corrent " + this.numero + " té " + this.saldo + " euros";
     }
 }

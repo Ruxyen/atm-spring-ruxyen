@@ -6,7 +6,8 @@ public class Client extends Persona {
     // Atributo para almacenar el correo electrónico del cliente
     private String email;
 
-    // Constructor que inicializa todos los atributos de la clase padre (Persona) y el atributo email
+    // Constructor que inicializa todos los atributos de la clase padre (Persona) y
+    // el atributo email
     public Client(String nom, String cognom, String dni, LocalDate dataNaixement, String email) {
         super(nom, cognom, dni, dataNaixement); // Llama al constructor de la clase padre
         this.email = email;

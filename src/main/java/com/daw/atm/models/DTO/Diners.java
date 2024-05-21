@@ -1,17 +1,14 @@
 package com.daw.atm.models.DTO;
 
-
 public class Diners {
-   String quantitat;
+    String quantitat;
 
+    public String getQuantitat() {
+        return quantitat;
+    }
 
-   public String getQuantitat() {
-       return quantitat;
-   }
+    public void setQuantitat(String quantitat) {
+        this.quantitat = quantitat;
+    }
 
-
-   public void setQuantitat(String quantitat) {
-       this.quantitat = quantitat;
-   }
-  
 }

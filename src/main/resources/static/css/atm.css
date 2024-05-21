@@ -1,11 +1,12 @@
 /* atm.css */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: url('/images/ATM-card.jpg');  
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('/images/ATM-card.jpg');  
     background-size: cover;
     background-position: center;
     display: flex;
@@ -14,7 +15,14 @@ body {
 }
 
 .container {
-    margin-left:100px;
+    margin-left: 165px;
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+}
+
+.container_moviments {
+    margin-left: 25px;
     display: flex;
     max-width: 900px;
     width: 100%;
@@ -30,7 +38,6 @@ body {
 }
 
 .column {
-   
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -38,9 +45,34 @@ body {
 
 #form-column {
     text-align: center;
-    width:450px;   
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque background for better readability */
+    width: 400px;   
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease; /* Animación de sombra */
+}
+
+#form-column:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.column-moviments {
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#form-column_moviments {
+    text-align: center;
+    width: 950px;   
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease; /* Animación de sombra */
+}
+
+#form-column_moviments:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el ratón */
 }
 
 #buttons-column-1,
@@ -52,7 +84,7 @@ body {
 }
 
 .button {
-    font-size: 14px; /* Slightly larger font size for better readability */
+    font-size: 18px;
     display: flex;
     flex-direction: column; 
     align-items: center;
@@ -63,12 +95,12 @@ body {
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #333; /* Brighter background color for buttons */
+    background-color: #333;
     border: 1px solid white;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Animación de botón y sombra */
 }
 
 .button svg {
@@ -77,6 +109,11 @@ body {
     height: 40px;
     margin-bottom: 6px; 
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)); 
+}
+
+.button:hover {
+    background-color: #555; /* Color de fondo más oscuro al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al pasar el ratón */
 }
 
 .button:active {
@@ -101,13 +138,12 @@ body {
 }
 
 #green-button {
-    background-color: #28a745; /* Brighter green background */
+    background-color: #28a745;
     box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4); 
 }
 
 #central-form {
     width: 100%;
-    max-width: 300px;
     margin: 0 auto;
 }
 
@@ -121,7 +157,7 @@ input, select {
 }
 
 .wide-select {
-    width: 100%; /* Ensures the select box takes full width */
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -129,7 +165,7 @@ input, select {
 }
 
 .error-message {
-    font-size: 12px; 
+    font-size: 14px;
     color: #ff0000;
     margin-top: 5px;
 }
@@ -169,7 +205,7 @@ tr:nth-child(even) {
 }
 
 .transaction {
-    font-size: 10px; 
+    font-size: 12px;
     color: #5a5959;
     overflow-x: auto;
 }

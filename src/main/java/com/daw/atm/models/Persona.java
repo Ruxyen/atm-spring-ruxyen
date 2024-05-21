@@ -7,9 +7,9 @@ import java.time.Period;
 public class Persona {
 
     // Atributos de la clase
-    protected String nom;              // Nombre de la persona
-    protected String cognom;           // Apellido de la persona
-    protected String dni;              // DNI de la persona
+    protected String nom; // Nombre de la persona
+    protected String cognom; // Apellido de la persona
+    protected String dni; // DNI de la persona
     protected LocalDate dataNaixement; // Fecha de nacimiento de la persona
 
     // Métodos
@@ -21,7 +21,8 @@ public class Persona {
 
     // Método estático para validar el DNI
     static public boolean validarDNI(String dni) {
-        char[] lletres = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'}; 
+        char[] lletres = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
+                'H', 'L', 'C', 'K', 'E' };
         if (dni.length() != 9) {
             return false;
         }
@@ -36,7 +37,7 @@ public class Persona {
             }
             return true;
         } catch (Exception e) {
-            //System.out.println(e.getMessage());
+            // System.out.println(e.getMessage());
             System.out.println("Errorrrrrrrrrrrrrrrrrrr, espabila!");
             return false;
         }
@@ -50,7 +51,8 @@ public class Persona {
     // Método toString para representar la persona como una cadena de texto
     @Override
     public String toString() {
-        return "Persona [nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + ", data naixement=" + dataNaixement + "]";
+        return "Persona [nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + ", data naixement=" + dataNaixement
+                + "]";
     }
 
     // Constructor con parámetros

@@ -4,19 +4,19 @@ import java.time.LocalDate;
 
 // Clase que representa a un empleado, hereda de Persona
 public class Empleat extends Persona {
-    
+
     // Atributos específicos de un empleado
-    private String categoria;  // Categoría del empleado
-    private double sou;  // Sueldo del empleado
-    private String nom;  // Nombre del empleado
-    
+    private String categoria; // Categoría del empleado
+    private double sou; // Sueldo del empleado
+    private String nom; // Nombre del empleado
+
     // Constructor vacío
     public Empleat() {
     }
 
     // Constructor completo que inicializa todos los atributos
     public Empleat(String nom, String cognom, String dni, LocalDate dataNaixement, String categoria, double sou) {
-        super(nom, cognom, dni, dataNaixement);  // Llama al constructor de la clase base (Persona)
+        super(nom, cognom, dni, dataNaixement); // Llama al constructor de la clase base (Persona)
         this.categoria = categoria;
         this.sou = sou;
         this.nom = nom;
@@ -56,5 +56,5 @@ public class Empleat extends Persona {
     // Setter para establecer el nombre del empleado
     public void setNom(String nom) {
         this.nom = nom;
-    } 
+    }
 }

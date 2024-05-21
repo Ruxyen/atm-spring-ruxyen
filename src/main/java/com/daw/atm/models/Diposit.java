@@ -2,13 +2,13 @@ package com.daw.atm.models;
 
 // Clase que representa un depósito
 public class Diposit {
-    
+
     // Atributo que representa el valor del depósito
     protected double valor;
-    
+
     // Atributo que representa la cantidad del depósito
     protected double quantitat;
-    
+
     // Constructor que inicializa los valores del depósito
     public Diposit(double valor, double quantitat) {
         this.valor = valor;
