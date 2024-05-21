@@ -1,6 +1,7 @@
 package com.daw.atm.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Operacio {
 
@@ -56,7 +57,11 @@ public class Operacio {
 
     @Override
     public String toString() {
-        return descripcio + " , " + quantitat + " , " 
-                + (destinatari != null ?  " , " + destinatari : "") + data ;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dataFormatted = data.format(formatter);
+        return String.format("Tipus: %s / Quantitat: %.2f%s / Data i hora: %s",
+                             descripcio, quantitat,
+                             destinatari != null ? " / Destinatari: " + destinatari : "",
+                             dataFormatted);
     }
 }

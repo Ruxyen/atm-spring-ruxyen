@@ -89,13 +89,6 @@ public class Compte {
         return false;
     }
 
-    public String imprimirMoviments() {
-        StringBuilder sb = new StringBuilder();
-        for (Operacio operacio : llistaMoviments) {
-            sb.append(operacio.toString()).append("\n");
-        }
-        return sb.toString();
-    }
 
     @Override
     public String toString() {

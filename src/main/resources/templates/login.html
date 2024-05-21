@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link th:href="@{/css/atm.css}" rel="stylesheet" />
+	<link rel="icon" href="../images/favicon2.png" type="image/png">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 	<title>Login</title>
@@ -24,7 +25,7 @@
 			<h3>Login</h3>
 			<form th:action="@{/login}" th:object="${credencials}" method="POST">
 				<div class="inputLogin">
-					<input type="text" name="number" placeholder="Numero de la targeta" th:field="*{number}">
+					<input type="text" name="number" placeholder="Número de la targeta" th:field="*{number}">
 					<input type="text" name="PIN" placeholder="PIN" th:field="*{PIN}">
 				</div>
 				<br><label th:if="${missatge}" th:text="${missatge}"></label>
@@ -45,6 +46,7 @@
 				</svg>
 				<label>Cancel·lar</label>
 			</a>
+			
 			<a href="#" class="button"></a>
 			<a href="#" class="button"></a>
 		</div>
