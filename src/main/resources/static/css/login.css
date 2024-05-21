@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .container {
     display: flex;
     justify-content: center;
@@ -26,6 +27,7 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* Text color for better contrast */
 }
 
 /* Styling for input fields */
@@ -37,6 +39,8 @@ form input[type="password"] {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f2f2f2; /* Light background for inputs */
+    color: #000000; /* Dark text for inputs */
 }
 
 /* Styling for submit button */
@@ -64,4 +68,3 @@ form label {
     color: red;
     font-size: 14px;
 }
-

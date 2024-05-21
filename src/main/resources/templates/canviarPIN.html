@@ -3,28 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{/css/atm.css}" rel="stylesheet" />
-    <title>Moviments</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link th:href="@{/css/atm.css}" rel="stylesheet" />
+    <title>Canviar PIN</title>
 </head>
 
 <body>
 
-    <div class="container">
+	<div class="container">
         <div class="column" id="buttons-column-1">
-            <a href="/ingressar" class="button">Ingresar</a>
+            <a href="/ingressar" class="button">Ingressar</a>
             <a href="/retirar" class="button">Retirar</a>
             <a href="/transferencia" class="button">Transferencia</a>
-            <a href="/canviarPIN" class="button">Canviar PIN</a>
+            <a href="/moviments" class="button">Moviments</a>
         </div>
-
+    
         <div class="column" id="form-column">
-            <h3>Moviments</h3>
-            <select class="wide-select" size="10">
-                <option th:each="operacio : ${operacions}" th:text="${operacio}"></option>
-            </select>
+            <h3>Canviar PIN</h3>
+            <form th:action="@{/canviarPIN}" method="post">
+                <label for="currentPIN">PIN Actual:</label>
+                <input type="password" id="currentPIN" name="currentPIN"><br>
+                <label for="newPIN">Nou PIN:</label>
+                <input type="password" id="newPIN" name="newPIN"><br>
+                <label for="confirmNewPIN">Confirmar Nou PIN:</label>
+                <input type="password" id="confirmNewPIN" name="confirmNewPIN"><br>
+                
+                <div th:if="${errorMessage}" class="error-message">
+                    <p>Error: <span th:text="${errorMessage}"></span></p>
+                </div>
+            
         </div>
-
+    
         <div class="column" id="buttons-column-3">
             <button type="submit" class="button" id="green-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -33,7 +42,7 @@
                 </svg>
                 <label>Confirmar</label>
             </button>
-            <a href="/ingressar" class="button" id="red-button">
+            <a href="/canviarPIN" class="button" id="red-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#ff0000;">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -43,6 +52,7 @@
             </a>
         </div>
     </div>
+</form>
 
 </body>
 

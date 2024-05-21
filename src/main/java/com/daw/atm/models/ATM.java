@@ -106,4 +106,16 @@ public class ATM {
         	return false;
     	return targetaActual.getCompteCorrent().transferencia(desti, quantitat);
 	}
+
+	public boolean canviarPIN(int currentPIN, int newPIN) {
+		if (targetaActual == null) {
+			return false; // No hay tarjeta actualmente asignada
+		}
+		if (targetaActual.getPin() != currentPIN) {
+			return false; // El PIN actual no coincide
+		}
+		targetaActual.setPin(newPIN); // Cambia el PIN
+		return true; // PIN cambiado con éxito
+	}
+	
 }

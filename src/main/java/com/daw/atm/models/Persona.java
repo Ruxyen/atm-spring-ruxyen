@@ -3,54 +3,57 @@ package com.daw.atm.models;
 import java.time.LocalDate;
 import java.time.Period;
 
+// Clase que representa una persona
 public class Persona {
 
-    //Atributos
-   protected String nom;
-   protected String cognom;
-   protected String dni;
-   protected LocalDate dataNaixement;
+    // Atributos de la clase
+    protected String nom;              // Nombre de la persona
+    protected String cognom;           // Apellido de la persona
+    protected String dni;              // DNI de la persona
+    protected LocalDate dataNaixement; // Fecha de nacimiento de la persona
 
-   //Metodes
+    // Métodos
 
-    public int edat(){
-    return Period.between(dataNaixement, LocalDate.now()).getYears();
-   }
+    // Método para calcular la edad de la persona
+    public int edat() {
+        return Period.between(dataNaixement, LocalDate.now()).getYears();
+    }
 
-   static public boolean validarDNI(String dni){
-      char[] lletres = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'}; 
-        if (dni.length()!=9){
+    // Método estático para validar el DNI
+    static public boolean validarDNI(String dni) {
+        char[] lletres = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'}; 
+        if (dni.length() != 9) {
             return false;
         }
-    String numero = dni.substring(0, 8);
-    System.out.println(numero);
+        String numero = dni.substring(0, 8);
+        System.out.println(numero);
 
-    try{
-        int numInt = Integer.parseInt(numero);
-        int index = numInt%23;
-        if(lletres[index] != Character.toUpperCase(dni.charAt(8))) return false;
-
-        return true;
+        try {
+            int numInt = Integer.parseInt(numero);
+            int index = numInt % 23;
+            if (lletres[index] != Character.toUpperCase(dni.charAt(8))) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
+            System.out.println("Errorrrrrrrrrrrrrrrrrrr, espabila!");
+            return false;
+        }
     }
-    catch(Exception e){
-        //System.out.println(e.getMessage());
-        System.out.println("Errorrrrrrrrrrrrrrrrrrr, espabila!");
-        return false;
-    }
 
-    
-   }
-
-    public Persona(){
+    // Constructor por defecto
+    public Persona() {
         System.out.println("Sóc una persona");
+    }
 
-   }
-
+    // Método toString para representar la persona como una cadena de texto
     @Override
     public String toString() {
-        return "Persona [nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + ", data naixement=" + LocalDate.parse("2002-11-12") + "]";
+        return "Persona [nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + ", data naixement=" + dataNaixement + "]";
     }
 
+    // Constructor con parámetros
     public Persona(String nom, String cognom, String dni, LocalDate dataNaixement) {
         this.nom = nom;
         this.cognom = cognom;
@@ -58,22 +61,25 @@ public class Persona {
         this.dataNaixement = dataNaixement;
     }
 
-        public void parlar(){
+    // Método para que la persona hable
+    public void parlar() {
         System.out.println("Voy a hablar");
         System.out.println("Em dic " + this.nom);
     }
 
-    public void parlar(String Idioma){
-        if (Idioma.equals("cat")){
+    // Método para que la persona hable en un idioma específico
+    public void parlar(String Idioma) {
+        if (Idioma.equals("cat")) {
             System.out.println("Vaig a parlar");
             System.out.println("Em dic " + this.nom);
         }
-        if (Idioma.equals("ing")){
+        if (Idioma.equals("ing")) {
             System.out.println("I'm going to talk");
             System.out.println("I'm " + this.nom);
         }
     }
 
+    // Getters y Setters
     public String getNom() {
         return nom;
     }
@@ -105,6 +111,4 @@ public class Persona {
     public void setDataNaixement(LocalDate dataNaixement) {
         this.dataNaixement = dataNaixement;
     }
-    
 }
-
