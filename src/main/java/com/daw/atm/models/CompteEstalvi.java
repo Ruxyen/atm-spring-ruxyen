@@ -34,12 +34,11 @@ public class CompteEstalvi extends Compte {
     // Método para retirar dinero de la cuenta de ahorro
     @Override
     public boolean retirar(double quantitat) {
-        // Verifica si el saldo después de la retirada sería menor que la cantidad
-        // mínima permitida
         if (this.saldo - quantitat < QUANTITAT_MINIMA) {
-            return false; // No permite la retirada
+            System.out.println("No s'ha realitzat l'extracció. Vigila amb el saldo del compte.");
+            return false;
         }
-        return super.retirar(quantitat); // Permite la retirada si se cumple la condición
+        return super.retirar(quantitat);
     }
 
     // Método para aplicar el interés a la cuenta de ahorro

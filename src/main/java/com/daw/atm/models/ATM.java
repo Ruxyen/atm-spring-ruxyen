@@ -35,15 +35,25 @@ public class ATM {
 
     public void ingressar(double quantitat) {
         if (this.targetaActual != null) {
-            this.targetaActual.getCompteCorrent().ingresar(quantitat);
+            if (quantitat % 10 == 0) {
+                this.targetaActual.getCompteCorrent().ingressar(quantitat);
+            } else {
+                System.out.println("La cantidad debe ser un múltiplo de 10.");
+            }
         }
     }
-
-    public void retirar(double quantitat) {
+    
+    public boolean retirar(double quantitat) {
         if (this.targetaActual != null) {
-            this.targetaActual.getCompteCorrent().retirar(quantitat);
+            return this.targetaActual.getCompteCorrent().retirar(quantitat);
         }
+        return false;
     }
+    
+    
+    
+
+  
 
     public boolean transferencia(int quantitat, String numero) {
         Compte desti = banc.getCompte(numero);

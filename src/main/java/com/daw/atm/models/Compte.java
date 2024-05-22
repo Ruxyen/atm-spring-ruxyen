@@ -62,11 +62,17 @@ public class Compte {
         return llistaMoviments;
     }
 
-    public void ingresar(double quantitat) {
-        this.saldo += quantitat;
-        Operacio operacio = new Operacio("INGRÉS", quantitat, null);
-        llistaMoviments.add(operacio);
+    public void ingressar(double quantitat) {
+        if (quantitat % 10 == 0) {
+            this.saldo += quantitat;
+            Operacio operacio = new Operacio("INGRÉS", quantitat, null);
+            llistaMoviments.add(operacio);
+        } else {
+            System.out.println("La cantidad debe ser un múltiplo de 10.");
+        }
     }
+    
+    
 
     public boolean retirar(double quantitat) {
         if (saldo >= quantitat) {
@@ -75,13 +81,16 @@ public class Compte {
             llistaMoviments.add(operacio);
             return true;
         } else {
+            System.out.println("No s'ha realitzat l'extracció. Vigila amb el saldo del compte.");
             return false;
         }
     }
+    
+    
 
     public boolean transferencia(Compte desti, double quantitat) {
         if (this.retirar(quantitat)) {
-            desti.ingresar(quantitat);
+            desti.ingressar(quantitat);
             Operacio operacio = new Operacio("TRANSFERÈNCIA", quantitat, desti.getNumero());
             llistaMoviments.add(operacio);
             return true;

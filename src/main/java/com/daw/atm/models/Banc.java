@@ -62,6 +62,17 @@ public class Banc {
 				(CompteCorrent) llistaComptes.get(4)));
 	}
 
+	// Método para obtener la lista de cuentas asociadas a un cliente
+    public ArrayList<Compte> getLlistaComptesDelClient(Client client) {
+        ArrayList<Compte> comptesDelClient = new ArrayList<>();
+        for (Compte compte : llistaComptes) {
+            if (compte.getPropietari().equals(client)) {
+                comptesDelClient.add(compte);
+            }
+        }
+        return comptesDelClient;
+    }
+
 	@Override
 	public String toString() {
 		return "Banc [nom=" + nom + ", numbanc=" + numbanc + "]";
