@@ -20,7 +20,6 @@ import com.daw.atm.models.DTO.Transfer;
 
 @Controller
 public class ATMController {
-
     @Autowired
     ATM atm; //crea un objecte ATM de forma automàtica
 
