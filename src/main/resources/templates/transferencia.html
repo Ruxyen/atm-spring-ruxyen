@@ -15,7 +15,7 @@
 
     <div class="container">
         <div class="column" id="buttons-column-1">
-            <a href="/ingressar" class="button">Ingresar</a>
+            <a href="/ingressar" class="button">Ingressar</a>
             <a href="/retirar" class="button">Retirar</a>
             <a href="/canviarPIN" class="button">Canviar PIN</a>
             <a href="/moviments" class="button">Moviments</a>
@@ -29,7 +29,7 @@
                     <input type="text" name="numero" placeholder="Número Compte Corrent" th:field="*{numero}">
                 </div>
                 <div th:if="${altresComptes}">
-                    <h2 style="color:blue">Cuentas corrientes:</h2>
+                    <h2 style="color:blue">Comptes Corrents:</h2>
                     <ul>
                         <li th:each="compte : ${altresComptes}">
                             <p><strong>Número de compte:</strong> <span th:text="${compte.numero}"></span></p>

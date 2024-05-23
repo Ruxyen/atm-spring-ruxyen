@@ -90,6 +90,7 @@ public class ATMController {
             if (quantitat % 10 == 0) {
                 atm.ingressar(quantitat);
                 model.addAttribute("missatge", "S'ha realitzat l'ingrés");
+                return "ingressar";
             } else {
                 model.addAttribute("missatge", "La quantitat ha de ser un múltiple de 10.");
             }
@@ -115,6 +116,7 @@ public class ATMController {
                 boolean success = atm.retirar(quantitat);
                 if (success) {
                     model.addAttribute("missatge", "S'ha fet l'extracció");
+                    return "retirar";
                 } else {
                     model.addAttribute("missatge", "No s'ha realitzat l'extracció. Vigila amb el saldo del compte.");
                 }
@@ -158,6 +160,7 @@ public class ATMController {
             // Procesar la transferencia
             if (atm.transferencia(Quantitat, numeroDestino)) {
                 model.addAttribute("missatge", "Operació efectuada");
+                return "transferencia";
             } else {
                 model.addAttribute("missatge", "Operació incorrecta");
             }

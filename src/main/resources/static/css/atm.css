@@ -16,14 +16,13 @@ body {
 }
 
 .container {
-    margin-left: 165px;
+    margin-left:310px;
     display: flex;
-    max-width: 900px;
     width: 100%;
 }
 
 .container_moviments {
-    margin-left: 25px;
+    margin-left: -720px;
     display: flex;
     width: 1080px;
 }
