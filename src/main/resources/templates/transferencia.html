@@ -22,6 +22,7 @@
         </div>
 
         <div class="column" id="form-column">
+            <p style="font-size:30px; font-weight: bold;"><strong>Client: </strong> <span th:text="${nomCompte}"></span></p>
             <h3>Transferencia</h3>
             <form th:action="@{/transferencia}" th:object="${transfer}" method="POST">
                 <div class="inputTransferencia">

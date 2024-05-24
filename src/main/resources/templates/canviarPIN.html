@@ -22,6 +22,7 @@
         </div>
 
         <div class="column" id="form-column">
+            <p style="font-size:30px; font-weight: bold;"><strong>Client: </strong> <span th:text="${nomCompte}"></span></p>
             <h3>Canviar PIN</h3>
             <form th:action="@{/canviarPIN}" method="post">
                 <label for="currentPIN">PIN Actual:</label>

@@ -22,6 +22,7 @@
         </div>
 
         <div class="column-moviments" id="form-column_moviments">
+            <p style="font-size:30px; font-weight: bold;"><strong>Client: </strong> <span th:text="${nomCompte}"></span></p>
             <h3>Moviments</h3>
             <select class="wide-select" size="10">
                 <option th:each="operacio : ${operacions}" th:text="${operacio}"></option>

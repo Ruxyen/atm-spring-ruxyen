@@ -22,6 +22,7 @@
 		</div>
 
 		<div class="column" id="form-column">
+			<p style="font-size:30px; font-weight: bold;"><strong>Benvingut/a </strong> <span th:text="${nomCompte}"></span></p>
 			<h3>Iniciar Sessió</h3>
 			<form th:action="@{/login}" th:object="${credencials}" method="POST">
 				<div class="inputLogin">

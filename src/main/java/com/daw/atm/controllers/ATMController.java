@@ -21,7 +21,7 @@ import com.daw.atm.models.DTO.Transfer;
 @Controller
 public class ATMController {
     @Autowired
-    ATM atm; //crea un objecte ATM de forma automàtica
+    ATM atm; // crea un objecte ATM de forma automàtica
 
     @GetMapping("/")
     public String mostrarFormulariLogin(Model model) {
@@ -79,6 +79,9 @@ public class ATMController {
     @GetMapping("/ingressar")
     public String ingressar(Model model) {
         model.addAttribute("diners", new Diners());
+
+        Compte compteActual = atm.getTargetaActual().getCompteCorrent();
+        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
         return "ingressar";
     }
 
@@ -102,6 +105,9 @@ public class ATMController {
     @GetMapping("/retirar")
     public String treure(Model model) {
         model.addAttribute("diners", new Diners());
+
+        Compte compteActual = atm.getTargetaActual().getCompteCorrent();
+        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
         return "retirar";
     }
 
@@ -138,6 +144,7 @@ public class ATMController {
         model.addAttribute("transfer", new Transfer());
         model.addAttribute("numeroCompte", compteActual.getNumero());
         model.addAttribute("altresComptes", altresComptes);
+        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
 
         return "transferencia";
     }
@@ -173,12 +180,18 @@ public class ATMController {
     public String moviment(Model model) {
         ArrayList<Operacio> operacions = atm.getTargetaActual().getCompteCorrent().getLlistaMoviments();
         model.addAttribute("operacions", operacions);
+
+        Compte compteActual = atm.getTargetaActual().getCompteCorrent();
+        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
         return "moviments";
     }
 
     @GetMapping("/canviarPIN")
     public String getCanviarPIN(Model model) {
         model.addAttribute("changePIN", new CanviarPIN());
+        
+        Compte compteActual = atm.getTargetaActual().getCompteCorrent();
+        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
         return "canviarPIN";
     }
 
@@ -194,6 +207,8 @@ public class ATMController {
             model.addAttribute("errorMessage", "El PIN actual no és correcte");
             return "canviarPIN";
         }
+
+       
 
         return "redirect:/operacions";
     }
