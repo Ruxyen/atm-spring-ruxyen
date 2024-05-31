@@ -189,7 +189,7 @@ public class ATMController {
     @GetMapping("/canviarPIN")
     public String getCanviarPIN(Model model) {
         model.addAttribute("changePIN", new CanviarPIN());
-        
+
         Compte compteActual = atm.getTargetaActual().getCompteCorrent();
         model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
         return "canviarPIN";

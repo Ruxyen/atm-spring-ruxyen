@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="column" id="form-column">
-			<p style="font-size:30px; font-weight: bold;"><strong>Benvingut/a </strong> <span th:text="${nomCompte}"></span></p>
+			<p style="font-size:30px; font-weight: bold;"><strong>Benvingut/a al ATM</strong> <span th:text="${nomCompte}"></span></p>
 			<h3>Iniciar Sessió</h3>
 			<form th:action="@{/login}" th:object="${credencials}" method="POST">
 				<div class="inputLogin">
@@ -34,6 +34,8 @@
 		</div>
 
 		<div class="column" id="buttons-column-3">
+			
+			<a href="#" class="button"></a>
 			<button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 					stroke-linejoin="round" style="color:black;">
@@ -48,7 +50,7 @@
 				<label>Cancel·lar</label>
 			</a>
 			
-			<a href="#" class="button"></a>
+			
 			<a href="#" class="button"></a>
 		</div>
 		</form>
