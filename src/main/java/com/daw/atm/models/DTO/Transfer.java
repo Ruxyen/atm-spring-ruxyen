@@ -5,21 +5,19 @@ public class Transfer {
 	String numero;
 
 	public String getQuantitat() {
-    	return quantitat;
+		return quantitat;
 	}
 
 	public void setQuantitat(String quantitat) {
-    	this.quantitat = quantitat;
+		this.quantitat = quantitat;
 	}
 
 	public String getNumero() {
-    	return numero;
+		return numero;
 	}
 
 	public void setNumero(String numero) {
-    	this.numero = numero;
+		this.numero = numero;
 	}
 
 }
-
-

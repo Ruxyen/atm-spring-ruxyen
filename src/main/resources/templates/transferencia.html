@@ -2,54 +2,73 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link th:href="@{/css/atm.css}" rel="stylesheet" />
-	<title>Transferencia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/atm.css}" rel="stylesheet" />
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Transferencia</title>
 </head>
 
 <body>
 
-	<div class="container">
-    	<div class="column" id="buttons-column-1">
-        	<a href="/ingressar" class="button">Ingresar</a>
-        	<a href="/retirar" class="button">Retirar</a>
-        	<a href="/transferencia" class="button">Transferencia</a>
-        	<a href="/canviarPIN" class="button">Canviar PIN</a>
-    	</div>
+    <div class="container"style="margin-left:390px">
+        <div class="column" id="buttons-column-1">
+            <a href="/ingressar" class="button">Ingressar</a>
+            <a href="/retirar" class="button">Retirar</a>
+            <a href="/canviarPIN" class="button">Canviar PIN</a>
+            <a href="/moviments" class="button">Moviments</a>
+        </div>
 
-    	<div class="column" id="form-column">
-        	<h3>Transferencia</h3>
-        	<form th:action="@{/transferencia}" th:object="${transfer}" method="POST">
-            	<div class="inputTransferencia">
-                	<input type="text" name="quantitat" placeholder="Quantitat" th:field="*{quantitat}">
-                	<input type="text" name="numero" placeholder="Numero CC" th:field="*{numero}">
+        <div class="column" id="form-column">
+            <p style="font-size:30px; font-weight: bold;"><strong>Client: </strong> <span th:text="${nomCompte}"></span></p>
+            <h3>Transferencia</h3>
+            <form th:action="@{/transferencia}" th:object="${transfer}" method="POST">
+                <div class="inputTransferencia">
+                    <input type="text" name="quantitat" placeholder="Quantitat" th:field="*{quantitat}">
+                    <input type="text" name="numero" placeholder="Número Compte Corrent" th:field="*{numero}">
+                </div>
+                <div th:if="${altresComptes}">
+                    <h2 style="color:blue">Comptes Corrents:</h2>
+                    <ul>
+                        <li th:each="compte : ${altresComptes}">
+                            <p><strong>Número de compte:</strong> <span th:text="${compte.numero}"></span></p>
+                            <p><strong>Saldo:</strong> <span th:text="${compte.saldo}"></span> €</p>
+                            <!-- Agrega más detalles si es necesario -->
+                        </li>
+                    </ul>
+                </div>
+                <br><label th:if="${missatge}" th:text="${missatge}"></label>
 
-            	</div>
-            	<br><label th:if="${missatge}" th:text="${missatge}"></label>
+        </div>
 
-    	</div>
-
-    	<div class="column" id="buttons-column-3">
-        	<a href="/moviment" class="button">Moviments</a>
-        	<a href="#" class="button"></a>
-        	<button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
-                	viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                	stroke-linejoin="round" style="color:#006400;">
-                	<circle cx="12" cy="12" r="10"></circle>
-            	</svg> <label>Confirmar</label></button>
-        	<a href="/transferencia" class="button" id="red-button">
-            	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                	stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#ff0000;">
-                	<line x1="18" y1="6" x2="6" y2="18"></line>
-                	<line x1="6" y1="6" x2="18" y2="18"></line>
-            	</svg>
-            	<label>Cancel·lar</label>
-        	</a>
-       	 
-    	</div>
-    	</form>
-	</div>
+        <div class="column" id="buttons-column-3">
+            <button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" style="color:black;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                </svg> <label>Confirmar</label></button>
+            <a href="/transferencia" class="button" id="red-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <label>Cancel·lar</label>
+            </a>
+            <a href="/operacions" class="button">Dades</a>
+            <a href="/" class="button" id="blue-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
+                    <path d="M9 21H3V3h6" />
+                    <path d="M16 17l5-5-5-5M21 12H9" />
+                </svg>
+                <label>Sortir</label>
+            </a>
+        </div>
+        </form>
+    </div>
 
 </body>
 

@@ -5,48 +5,55 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link th:href="@{/css/atm.css}" rel="stylesheet" />
+	<link rel="icon" href="../images/favicon.png" type="image/png">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 	<title>Login</title>
 </head>
 
 <body>
 
 	<div class="container">
-    	<div class="column" id="buttons-column-1">
-        	<div class="button"></div>
-        	<div class="button"></div>
-        	<div class="button"></div>
-        	<div class="button"></div>
-    	</div>
+		<div class="column" id="buttons-column-1">
+			<div class="button"></div>
+			<div class="button"></div>
+			<div class="button"></div>
+			<div class="button"></div>
+		</div>
 
-    	<div class="column" id="form-column">
-        	<h3>Login</h3>
-        	<form th:action="@{/login}" th:object="${credencials}" method="POST">
-            	<div class="inputLogin">
-                	<input type="text" name="number" placeholder="Numero de la targeta" th:field="*{number}">
-                	<input type="text" name="PIN" placeholder="PIN" th:field="*{PIN}">
-            	</div>
-            	<br><label th:if="${missatge}" th:text="${missatge}"></label>
+		<div class="column" id="form-column">
+			<p style="font-size:30px; font-weight: bold;"><strong>Benvingut/a al ATM</strong> <span th:text="${nomCompte}"></span></p>
+			<h3>Iniciar Sessió</h3>
+			<form th:action="@{/login}" th:object="${credencials}" method="POST">
+				<div class="inputLogin">
+					<input type="text" name="number" placeholder="Número de la targeta" th:field="*{number}">
+					<input type="text" name="PIN" placeholder="PIN" th:field="*{PIN}">
+				</div>
+				<br><label th:if="${missatge}" th:text="${missatge}"></label>
 
-    	</div>
+		</div>
 
-    	<div class="column" id="buttons-column-3">
-        	<button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
-                	viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                	stroke-linejoin="round" style="color:#006400;">
-                	<circle cx="12" cy="12" r="10"></circle>
-            	</svg> <label>Confirmar</label></button>
-        	<a href="/" class="button" id="red-button">
-            	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                	stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#ff0000;">
-                	<line x1="18" y1="6" x2="6" y2="18"></line>
-                	<line x1="6" y1="6" x2="18" y2="18"></line>
-            	</svg>
-            	<label>Cancel·lar</label>
-        	</a>
-        	<a href="#" class="button"></a>
-        	<a href="#" class="button"></a>
-    	</div>
-    	</form>
+		<div class="column" id="buttons-column-3">
+			
+			<a href="#" class="button"></a>
+			<button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+					stroke-linejoin="round" style="color:black;">
+					<circle cx="12" cy="12" r="10"></circle>
+				</svg> <label>Confirmar</label></button>
+			<a href="/" class="button" id="red-button">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+					stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+				<label>Cancel·lar</label>
+			</a>
+			
+			
+			<a href="#" class="button"></a>
+		</div>
+		</form>
 	</div>
 
 </body>

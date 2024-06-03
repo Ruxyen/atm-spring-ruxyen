@@ -8,33 +8,45 @@
     <link rel="icon" href="../images/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>ATM</title>
+    <title>Canviar PIN</title>
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container" style="margin-left:390px">
         <div class="column" id="buttons-column-1">
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
-            <div class="button"></div>
+            <a href="/ingressar" class="button">Ingressar</a>
+            <a href="/retirar" class="button">Retirar</a>
+            <a href="/transferencia" class="button">Transferencia</a>
+            <a href="/moviments" class="button">Moviments</a>
         </div>
 
         <div class="column" id="form-column">
-            <label for="nombre">INTRODUCIR TARJETA</label>
-            <input type="text" id="nombre" name="nombre" placeholder="" required>
-            <label for="pin">PIN de la tarjeta:</label>
-            <input type="password" id="pin" name="pin" placeholder="PIN de la tarjeta" required>
+            <p style="font-size:30px; font-weight: bold;"><strong>Client: </strong> <span th:text="${nomCompte}"></span></p>
+            <h3>Canviar PIN</h3>
+            <form th:action="@{/canviarPIN}" method="post">
+                <label for="currentPIN">PIN Actual:</label>
+                <input type="password" id="currentPIN" name="currentPIN">
+                <label for="newPIN">Nou PIN:</label>
+                <input type="password" id="newPIN" name="newPIN">
+                <label for="confirmNewPIN">Confirmar Nou PIN:</label>
+                <input type="password" id="confirmNewPIN" name="confirmNewPIN">
+
+                <div th:if="${errorMessage}" class="error-message">
+                    <p>Error: <span th:text="${errorMessage}"></span></p>
+                </div>
+
         </div>
 
         <div class="column" id="buttons-column-3">
-            <button type="submit" class="button" id="green-button"><svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" style="color:black;">
+            <button type="submit" class="button" id="green-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
                     <circle cx="12" cy="12" r="10"></circle>
-                </svg> <label>Confirmar</label></button>
-            <a href="/" class="button" id="red-button">
+                </svg>
+                <label>Confirmar</label>
+            </button>
+            <a href="/canviarPIN" class="button" id="red-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -51,9 +63,10 @@
                 </svg>
                 <label>Sortir</label>
             </a>
-           
+			
         </div>
     </div>
+    </form>
 
 </body>
 

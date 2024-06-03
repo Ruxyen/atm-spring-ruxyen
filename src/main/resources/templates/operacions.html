@@ -1,23 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link th:href="@{/css/atm.css}" rel="stylesheet" />   
-        <title>Operacions</title>
-    </head>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/atm.css}" rel="stylesheet" />
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Operacions</title>
+    <style>
+        .pin-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .pin {
+            font-size: 17px;
+            margin-right: 10px;
+        }
+
+        .toggle-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .toggle-button img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
 
 <body>
-   <a href="/ingressar">Ingressar</a>
-   <a href="/treure">Treure</a>
-   <a href="/transferencia">Transferencia</a>
-   <a href="/canviarPIN">Canviar PIN</a>
-   <a href="/moviments" class="button">Moviments</a>
+    <div class="container" style="margin-left:100px">
+        
+        <div class="column" id="buttons-column-1">
+            <a href="/ingressar" class="button">Ingressar</a>
+            <a href="/retirar" class="button">Retirar</a>
+            <a href="/transferencia" class="button">Transferencia</a>
+            <a href="/canviarPIN" class="button">Canviar PIN</a>
+            <a href="/moviments" class="button">Moviments</a>
+            <a href="/" class="button" id="blue-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:black;">
+                    <path d="M9 21H3V3h6"/>
+                    <path d="M16 17l5-5-5-5M21 12H9"/>
+                </svg>
+                <label>Sortir</label>
+            </a>
+        </div>
+    
+        <div class="column" id="form-column" style="margin-right:30px">
+            
+            <h2 style="color:blue">Dades Personals</h2>
+            <div style="font-size: 17px;">
+                <p><strong>Nom:</strong> <span th:text="${nomCompte}"></span></p>
+                <p><strong>Cognoms:</strong> <span th:text="${apellidos}"></span></p>
+                <p><strong>Correu electrònic:</strong> <span th:text="${correo}"></span></p>
+                <p><strong>Compte actual:</strong> <span th:text="${numeroCompte}"></span></p>
+                <p><strong>Número targeta:</strong> <span th:text="${numeroTargeta}"></span></p>
+                <p><strong>PIN:</strong>
+                    
+                        <span id="pin" class="pin"> ••••</span>
+                        <button class="toggle-button" onclick="togglePinVisibility()">
+                            <img id="toggle-icon" src="https://img.icons8.com/ios-glyphs/30/000000/visible.png"/>
+                        </button>
+                    
+                    <span id="pin-hidden" style="display: none;" th:text="${pin}"></span>
+                </p>
+                <p><strong>Data de naixement:</strong> <span th:text="${dataNaixement}"></span></p>
+            </div>      
+        </div>
+    
+        <div class="column" id="form-column">
+            <div th:if="${altresComptes}">
+                <h2 style="color:blue">Altres comptes:</h2>
+                <ul>
+                    <li th:each="compte : ${altresComptes}">
+                        <p><strong>Número de compte:</strong>  <span th:text="${compte.numero}"></span> </p>
+                        <p><strong>Saldo:</strong>  <span th:text="${compte.saldo}"></span> €</p>
+                        <!-- Agrega más detalles si es necesario -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function togglePinVisibility() {
+            const pinElement = document.getElementById('pin');
+            const pinHiddenElement = document.getElementById('pin-hidden');
+            const iconElement = document.getElementById('toggle-icon');
 
-
-
+            if (pinElement.textContent === '••••') {
+                pinElement.textContent = pinHiddenElement.textContent;
+                iconElement.src = "https://img.icons8.com/ios-glyphs/30/000000/invisible.png";
+            } else {
+                pinElement.textContent = '••••';
+                iconElement.src = "https://img.icons8.com/ios-glyphs/30/000000/visible.png";
+            }
+        }
+    </script>
 </body>
-
 
 </html>
