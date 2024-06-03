@@ -200,13 +200,19 @@ public String processarIngressar(@ModelAttribute Diners diners, @RequestParam St
     }
 
     @GetMapping("/canviarPIN")
-    public String getCanviarPIN(Model model) {
-        model.addAttribute("changePIN", new CanviarPIN());
+public String getCanviarPIN(Model model) {
+    model.addAttribute("changePIN", new CanviarPIN());
 
-        Compte compteActual = atm.getTargetaActual().getCompteCorrent();
-        model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
-        return "canviarPIN";
+    if (atm.getTargetaActual() == null) {
+        model.addAttribute("errorMessage", "No hi ha cap targeta activa.");
+        return "error";
     }
+
+    Compte compteActual = atm.getTargetaActual().getCompteCorrent();
+    model.addAttribute("nomCompte", compteActual.getPropietari().getNom());
+    return "canviarPIN";
+}
+
 
     @PostMapping("/canviarPIN")
     public String postCanviarPIN(@ModelAttribute CanviarPIN changePIN, Model model) {
